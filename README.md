@@ -47,7 +47,10 @@ The possibilities are endless! Go crazy and change your hero however you want. J
 
 If you are looking for even more of a challenge, take a look at the *helpers.js* file and begin picking apart our helper methods. Is there any way you could adapt our path-finding algorithm and use a variant in your *hero.js* file? What other helper methods should be available to your hero that we did not include?
 
-## Testing
+
+Your hero has the potential to behave in any way you decide. Every change you make could alter the outcome of the game. You can be a lone wolf or a team player. You can heal or you can hurt. It is all up to you.
+
+## Testing and Training
 
 You can still test your hero code locally! After you have [Node.js](https://nodejs.org) installed, there are two ways to do this:
 
@@ -62,7 +65,6 @@ You can still test your hero code locally! After you have [Node.js](https://node
 If the tests pass, your code doesn't have any obvious errors.
 
 ### Option B: Have a test battle
-
 
 #### Running the battle
 
@@ -81,3 +83,26 @@ This will run a test battle of only 15 turns which takes place on a 5x5 game boa
 
 #### Can I commit changes to the test script?
 Absolutely! We only use your *hero.js* and *helpers.js* files for the live game, so feel free to do whatever you like with the rest of the files.
+
+## Game Rules
+
+### Win Conditions
+
+The game is decided in one of two ways:
+  1. A team eliminates all of the other team's heroes or...
+  2. After 1,250 turns, a team collects the most diamonds.
+
+### Turns
+
+These are the events that occur in one hero's turn, assuming the hero has some health left:
+
+1. We take the direction that your hero wants to go (ie - the direction that your `move` function returned) and ask if it is a valid coordinate. If it is, we move your hero to that tile. If not, your hero stays put.
+1. If the tile your hero wants to move to is...
+   - ... unoccupied, your hero moves on to that tile.
+   - ... a fallen hero, your hero will steal their soul.
+   - ... a diamond mine, then your hero will capture the diamond mine, but will not move on to that tile. Additionally, your hero will receive 20 damage because diamond mines are perilous.
+   - ... a health well, then your hero will receive 30 health, but will not move on to that tile.
+   - ... an enemy hero, then your hero will deal 10 damage to the enemy hero, but will not move to that tile.
+   - ... a friendly hero, then the friendly hero will receive 40 health, but your hero will not move on to that tile.
+1. If your hero is still alive after moving, then your hero deals 20 damage to any enemy hero on an adjacent tile. This is in addition to the specific damage done by moving directly into an enemy.
+1. After this, your hero's turn is over and we increment the game's turn and move on to the next hero.
