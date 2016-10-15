@@ -77,3 +77,11 @@ for (var i=0; i<turnsToPlay; i++) {
   game.handleHeroTurn(direction);
   game.board.inspect();
 }
+
+if (game.winningTeam === 0) {
+  console.log('You have won!');
+} else if (game.winningTeam === 1) {
+  console.log('You have lost.');
+} else {
+  console.log('The game has ended with no winner.');
+}
