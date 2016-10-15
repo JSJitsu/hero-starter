@@ -1,0 +1,27 @@
+{
+    "extends": "eslint:recommended",
+    "env": {
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6
+    },
+    "rules": {
+        "no-console": 0,
+        "indent": ["error", 4],
+        "spaced-comment": ["error", "always"],
+        "key-spacing": ["error", {
+            "beforeColon": false,
+            "afterColon": true
+        }],
+        "keyword-spacing": ["error", {
+            "before": true,
+            "after": true
+        }],
+        "space-before-function-paren": ["error", {
+            "anonymous": "always",
+            "named": "always",
+            "asyncArrow": "ignore"
+        }]
+    }
+}

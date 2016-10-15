@@ -1,24 +1,23 @@
 {
   "name": "hero-starter",
   "version": "0.0.0",
-  "description": "![](https://raw.githubusercontent.com/JavascriptBattle/javascript-battle-website/master/public/img/black-knight.png)",
   "main": "helpers.js",
   "scripts": {
-    "test": "npm run test-hero-brain",
-    "test-hero-brain": "mocha -R spec ./test/spec/HeroBrainSpec.js"
+    "test": "mocha -R spec ./test/spec/HeroBrainSpec.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gjtrowbridge/hero-starter.git"
+    "url": "https://github.com/JSJitsu/hero-starter.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gjtrowbridge/hero-starter/issues"
+    "url": "https://github.com/JSJitsu/hero-starter/issues"
   },
-  "homepage": "https://github.com/gjtrowbridge/hero-starter",
+  "homepage": "https://github.com/JSJitsu/hero-starter",
   "devDependencies": {
     "chai": "^1.9.2",
+    "eslint": "^3.8.0",
     "mocha": "^1.21.4"
   }
 }
