@@ -8,10 +8,10 @@ You must know a little bit of Git to get started. If you already know it, skip t
 
 ### Steps
 
-1. [Install Git](https://help.github.com/articles/set-up-git/)
-2. [Learn to Fork](https://help.github.com/articles/fork-a-repo/)
+1. [Install Git](https://help.github.com/articles/set-up-git/).
+2. [Learn to fork](https://help.github.com/articles/fork-a-repo/).
 3. Fork this repo so you have your own hero-starter.
-4. Enroll your hero by signing in to the [Javascript Fight Club](http://jsfight.club/) game.
+4. Enroll your hero by signing in to the [JavaScript Fight Club](http://jsfight.club/) game.
 
 ## Changing the Hero
 
