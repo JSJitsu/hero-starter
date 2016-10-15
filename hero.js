@@ -63,8 +63,14 @@ var moves = {
 
     // Balanced
     balanced: function (gameData, helpers){
-        // FIXME : fix;
-        return null;
+        // Here we determine if it's an even or odd turn for your hero;
+        if ((gameData.turn / 2) % 2) {
+            // If it is even, act like an an Aggressor
+            return moves.aggressor(gameData, helpers);
+        }else{
+            // If it is odd, act like a Priest
+            return moves.priest(gameData, helpers);
+        }
     },
 
     // The "Northerner"
