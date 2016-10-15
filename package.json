@@ -19,5 +19,8 @@
     "chai": "^1.9.2",
     "eslint": "^3.8.0",
     "mocha": "^1.21.4"
+  },
+  "dependencies": {
+    "ai-battle-engine": "git+https://github.com/JSJitsu/ai-battle-engine.git"
   }
 }
