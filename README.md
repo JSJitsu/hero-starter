@@ -1,4 +1,4 @@
-# Javascript Battle - Hero Starter Repo
+# JavaScript Fight Club - Hero Starter
 
 ## Getting Started
 
@@ -63,13 +63,12 @@ If the tests pass, your code doesn't have any obvious errors.
 ### Option B: Have a test battle
 
 
-
 #### Running the battle
 
 - On the command line, navigate to your hero-starter directory.
 - Type in the following command:
   ```
-  node test_your_hero_code.js
+  node test-battle.js
   ```
 This will run a test battle of only 15 turns which takes place on a 5x5 game board against a single enemy. The script will output what the board looks like at each turn, and the moves your hero tried to make.
 
