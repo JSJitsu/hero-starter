@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/JSJitsu/hero-starter.svg?branch=master)](https://travis-ci.org/JSJitsu/hero-starter)
 # JavaScript Fight Club - Hero Starter
 
 ## Getting Started
