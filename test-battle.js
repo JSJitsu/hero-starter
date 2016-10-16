@@ -19,8 +19,10 @@ To run:
 */
 
 // Get the helper file and the Game logic
+var ai_battle_engine = require('ai-battle-engine');
+var GameEngine = new ai_battle_engine();
 var helpers = require('./helpers.js');
-var Game = require('./game_logic/Game.js');
+var Game = GameEngine.getGame();
 
 // Get my hero's move function ("brain")
 var heroMoveFunction = require('./hero.js');
