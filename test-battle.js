@@ -24,10 +24,10 @@ To run:
 let cliOptions = { wait: false };
 
 // process cli arguments if any
-for(let i=0; i<process.argv.length; i++){
+for (let i=0; i<process.argv.length; i++){
     var cParam = process.argv[i].replace('--', '');
     // if its in the cliOptions list, flip the flag
-    if( typeof( cliOptions[cParam] ) !== 'undefined' ){
+    if ( typeof( cliOptions[cParam] ) !== 'undefined' ){
         cliOptions[cParam] = true;
     }
 }
@@ -47,7 +47,7 @@ var enemyMoveFunction = function (gameData, helpers) {
 
     // return choices[Math.floor(Math.random()*4)];
     return helpers.findNearestHealthWell (gameData);
-}
+};
 
 // Play a very short practice game
 var turnsToPlay = 15;
@@ -59,7 +59,7 @@ var game = new Game(5);
 /**
  * Sets up the game's enviroment and adds heroes, displays startup summary
  */
-function gameSetup(){
+function gameSetup () {
     // Add a health well in the middle of the board
     game.addHealthWell(2,2);
 
@@ -73,8 +73,8 @@ function gameSetup(){
     // Add an enemy hero in the bottom left corner of the map (team 1)
     game.addHero(4, 4, 'Enemy', 1);
 
-    if(cliOptions['wait']){ // wait mode
-        helpers.clearScreen();
+    if (cliOptions['wait']){ // wait mode
+        clearScreen();
     }
 
     console.log('About to start the game!  Here is what the board looks like:');
@@ -84,7 +84,7 @@ function gameSetup(){
     // game, the game object will not have any functions on it)
     game.board.inspect();
 
-    if(cliOptions['wait']){ // wait mode
+    if (cliOptions['wait']){ // wait mode
         console.log();
         console.log("Press ENTER to continue");
     }
@@ -94,7 +94,7 @@ function gameSetup(){
  * Runs the current turn
  * param {integer} turn - the current turn of the game
  */
-function runTurn(turn){
+function runTurn (turn) {
     var hero = game.activeHero;
     var direction;
     if (hero.name === 'MyHero') {
@@ -107,12 +107,12 @@ function runTurn(turn){
     console.log('Turn ' + turn + ':');
     console.log('-----');
     console.log(hero.name + ' tried to move ' + direction);
-    console.log(hero.name + ' owns ' + hero.mineCount + ' diamond mines')
-    console.log(hero.name + ' has ' + hero.health + ' health')
+    console.log(hero.name + ' owns ' + hero.mineCount + ' diamond mines');
+    console.log(hero.name + ' has ' + hero.health + ' health');
     game.handleHeroTurn(direction);
     game.board.inspect();
 
-    if(cliOptions['wait'] && turn<turnsToPlay){ // wait mode
+    if (cliOptions['wait'] && turn<turnsToPlay){ // wait mode
         console.log();
         console.log("Press ENTER to continue");
     }
@@ -121,7 +121,7 @@ function runTurn(turn){
 /**
  * Display summary of the game result
  */
-function gameSummary(){
+function gameSummary () {
     if (game.winningTeam === 0) {
         console.log('You have won!');
     } else if (game.winningTeam === 1) {
@@ -134,17 +134,24 @@ function gameSummary(){
 /**
  * End of game, what to do?
  */
-function gameEnd(){
+function gameEnd () {
     gameSummary();
     process.exit();
 }
+
+// Utils helper functions
+// Clears the console's screen
+function clearScreen () {
+    process.stdout.write('\033c');
+}
+
 
 
 // Game Start
 gameSetup();
 
 // Run Turns
-if(cliOptions['wait']){ // wait mode
+if (cliOptions['wait']){ // wait mode
     const readline = require('readline');
     readline.emitKeypressEvents(process.stdin);
 
@@ -153,20 +160,20 @@ if(cliOptions['wait']){ // wait mode
 
     process.stdin.on('keypress', (str, key) => {
         if (key.name === 'return') {
-            if(currentTurn<turnsToPlay){
-                helpers.clearScreen();
+            if (currentTurn<turnsToPlay){
+                clearScreen();
                 currentTurn++;
                 runTurn(currentTurn);
-            }else{
+            } else {
                 // Game ends
                 gameEnd();
             }
-        }else if(key.ctrl && key.name==='c'){ // ctrl + c, exit immediately
+        } else if (key.ctrl && key.name==='c'){ // ctrl + c, exit immediately
             console.log("Pressed Ctrl + C, exiting test-battle.js");
             process.exit();
         }
     });
-}else{ // normal mode, runs in 1 go
+} else { // normal mode, runs in 1 go
     for (currentTurn=1; currentTurn<=turnsToPlay; currentTurn++) {
         runTurn(currentTurn);
     }

@@ -246,9 +246,4 @@ helpers.findNearestTeamMember = function (gameData) {
     return pathInfoObject.direction;
 };
 
-// Clears the console's screen
-helpers.clearScreen = function() {
-    process.stdout.write('\033c');
-};
-
 module.exports = helpers;
