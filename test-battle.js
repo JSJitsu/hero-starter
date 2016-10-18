@@ -18,18 +18,16 @@ To run:
 
 */
 
-// potentail cli options
-// assuming flag type cli options need to start with '--', e.g. '--wait'
-// can add other pameters later on
-let cliOptions = { wait: false };
+// potentail cli options, and their default values
+let cliOptions = { wait: false,
+                   turns: 15 };
 
-// process cli arguments if any
-for (let i=0; i<process.argv.length; i++){
-    var cParam = process.argv[i].replace('--', '');
-    // if its in the cliOptions list, flip the flag
-    if ( typeof( cliOptions[cParam] ) !== 'undefined' ){
-        cliOptions[cParam] = true;
-    }
+// accepting cli parameters
+var argv = require('minimist')(process.argv.slice(2));
+
+// overwrite cli parameters
+for (var key in argv) {
+    cliOptions[key] = argv[key];
 }
 
 // Get the helper file and the Game logic
@@ -51,8 +49,6 @@ var enemyMoveFunction = function (gameData, helpers) {
     return helpers.findNearestHealthWell (gameData);
 };
 
-// Play a very short practice game
-var turnsToPlay = 15;
 var currentTurn = 0;
 
 // Makes a new game with a 5x5 board
@@ -114,7 +110,7 @@ function runTurn (turn) {
     game.handleHeroTurn(direction);
     game.board.inspect();
 
-    if (cliOptions['wait'] && turn<turnsToPlay){ // wait mode
+    if (cliOptions['wait'] && turn<cliOptions.turns){ // wait mode
         console.log();
         console.log("Press ENTER to continue");
     }
@@ -147,8 +143,6 @@ function clearScreen () {
     process.stdout.write('\033c');
 }
 
-
-
 // Game Start
 gameSetup();
 
@@ -162,7 +156,7 @@ if (cliOptions['wait']){ // wait mode
 
     process.stdin.on('keypress', (str, key) => {
         if (key.name === 'return') {
-            if (currentTurn<turnsToPlay){
+            if (currentTurn<cliOptions.turns){
                 clearScreen();
                 currentTurn++;
                 runTurn(currentTurn);
@@ -176,7 +170,7 @@ if (cliOptions['wait']){ // wait mode
         }
     });
 } else { // normal mode, runs in 1 go
-    for (currentTurn=1; currentTurn<=turnsToPlay; currentTurn++) {
+    for (currentTurn=1; currentTurn<=cliOptions.turns; currentTurn++) {
         runTurn(currentTurn);
     }
     // Game ends
