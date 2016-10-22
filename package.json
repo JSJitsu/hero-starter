@@ -19,6 +19,7 @@
   "homepage": "https://github.com/JSJitsu/hero-starter",
   "devDependencies": {
     "chai": "^1.9.2",
+    "commander": "^2.9.0",
     "eslint": "^3.8.0",
     "mocha": "^1.21.4"
   },
