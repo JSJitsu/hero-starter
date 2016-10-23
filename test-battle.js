@@ -30,7 +30,7 @@ args.description('CLI to test the hero.js code locally')
     .parse(process.argv);
 
 // args validation
-if ( isNaN(args.turns) ){
+if (args.turns && isNaN(args.turn)) {
     console.log();
     console.log("**Invalid turns input, input has to be an integer");
     args.outputHelp();
