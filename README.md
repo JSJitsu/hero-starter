@@ -58,10 +58,10 @@ You can still test your hero code locally! After you have [Node.js](https://node
 
 - On the command line, navigate to your hero code directory.
 - Type in the following commands:
-  ```
-  npm install
-  npm test
-  ```
+```
+npm install
+npm test
+```
 If the tests pass, your code doesn't have any obvious errors.
 
 ### Option B: Have a test battle
