@@ -1,26 +1,20 @@
-/*
+/**
 
-If you'd like to test your hero code locally,
-run this code using node (must have node installed).
+If you'd like to test your hero code locally, run this script using node.
 
-Please note that you DO NOT need to do this to enter javascript
-battle, it is simply an easy way to test whether your new hero
-code will work in the javascript battle.
+While you do not need to run this script to enter the battle, it is highly
+recommended that you run a few test battles to ensure your hero is working as
+you intended.
 
-To run:
-
-  -Install node
-  -Run the following in your terminal:
-
-    node test_your_hero_code.js
-
-  -If you don't see any errors in your terminal, the code works!
+See README.md for more information.
 
 */
 
-// potentail cli options, and their default values
-let cliOptions = { wait: false,
-                   turns: 15 };
+// possible cli options, and their default values
+let cliOptions = {
+    wait: false,
+    turns: 15
+};
 
 // accepting cli parameters
 var args = require('commander');
