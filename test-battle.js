@@ -60,6 +60,8 @@ var currentTurn = 0;
 // Makes a new game with a 5x5 board
 var game = new Game(5);
 
+game.maxTurn = cliOptions.turns;
+
 /**
  * Sets up the game's enviroment and adds heroes, displays startup summary
  */
