@@ -26,7 +26,7 @@ This game is played by writing JavaScript code. If you have never used JavaScrip
 
 
 ### Making Your Hero Smarter (or not)
-If you take a look at *hero.js*, you will notice that there are different move functions. Each function describes a specific type of hero behavior. 
+If you take a look at *hero.js*, you will notice that there are different move functions. Each function describes a specific type of hero behavior.
 
   * The **Northerner** cares about moving North... all the time.
   * The **Blind Man** moves randomly around the board.
@@ -56,11 +56,10 @@ You can still test your hero code locally! After you have [Node.js](https://node
 
 ### Option A: Check for code errors
 
-- On the command line, navigate to your hero code directory.
-- Type in the following commands:
+On the command line, navigate to your hero code directory, and type the following commands:
 ```
 npm install
-npm test
+npm run sanity
 ```
 If the tests pass, your code doesn't have any obvious errors.
 
@@ -68,12 +67,21 @@ If the tests pass, your code doesn't have any obvious errors.
 
 #### Running the battle
 
-- On the command line, navigate to your hero-starter directory.
-- Type in the following command:
-  ```
-  node test-battle.js
-  ```
+On the command line, navigate to your hero-starter directory, and type the following command:
+```
+node test-battle.js
+```
 This will run a test battle of only 15 turns which takes place on a 5x5 game board against a single enemy. The script will output what the board looks like at each turn, and the moves your hero tried to make.
+
+##### More Options
+
+You can modify how the test battle runs by passing the following options:
+
+| Flag | Description |
+| --- | --- |
+| `--help` | output usage information |
+| `--wait` | Turn by turn step through of the battle |
+| `--turns` | Specifies how many turns to run |
 
 #### Understanding the output
 - Your hero will be denoted by the code "H00".
