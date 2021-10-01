@@ -7,7 +7,7 @@ If you are anxious to join the fight, all you need to do is fork this repo and [
 
 You must know a little bit of Git to get started. If you already know it, skip to step 3.
 
-### Steps
+### Steps 
 
 1. [Install Git](https://help.github.com/articles/set-up-git/).
 2. [Learn to fork](https://help.github.com/articles/fork-a-repo/).
